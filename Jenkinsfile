@@ -9,7 +9,7 @@ pipeline {
         AWS_REGION = 'ap-south-1'
         ECR_REPO_NAME = '203918866361.dkr.ecr.ap-south-1.amazonaws.com/myapp'
         IMAGE_TAG = "${BUILD_NUMBER}"
-        GITHUB_CREDS = 'github-https-creds'       // Jenkins credential ID for GitHub PAT
+        GITHUB_CREDS = 'github-https-cred'       // Jenkins credential ID for GitHub PAT
         AWS_CREDS = 'aws-ecr-creds'               // Jenkins credential ID for AWS IAM access key
     }
 
@@ -25,7 +25,7 @@ pipeline {
 
             stage('Checkout Code') {
                 steps {
-                    git credentialsId: 'github-https-creds', url: 'https://github.com/malir001/terraform-ecs.git'
+                    git credentialsId: 'github-https-cred', url: 'https://github.com/malir001/terraform-ecs.git'
                 }
             }
         stage('Terraform Init & Plan') {
