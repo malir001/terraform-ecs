@@ -15,12 +15,19 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+       /* stage('Checkout Code') {
             steps {
                 git credentialsId: "${GITHUB_CREDS}", url: 'https://github.com/malir001/terraform-ecs.git', branch: 'master'
             }
         }
+*/
 
+
+            stage('Checkout Code') {
+                steps {
+                    git credentialsId: 'github-https-creds', url: 'https://github.com/malir001/terraform-ecs.git'
+                }
+            }
         stage('Terraform Init & Plan') {
             steps {
                 withCredentials([[
