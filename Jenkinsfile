@@ -38,6 +38,7 @@ pipeline {
         stage('Terraform Init & Plan') {
             steps {
                  echo "Terraform Init & Plan enter"
+                 echo "${AWS_CREDS}"
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: "${AWS_CREDS}"
