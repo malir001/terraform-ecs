@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+    git 'Default'
+}
+
     environment {
         AWS_REGION = 'ap-south-1'
         ECR_REPO_NAME = '203918866361.dkr.ecr.ap-south-1.amazonaws.com/myapp'
