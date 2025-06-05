@@ -37,6 +37,7 @@ pipeline {
     }
         stage('Terraform Init & Plan') {
             steps {
+                 echo "Terraform Init & Plan enter"
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: "${AWS_CREDS}"
@@ -47,6 +48,7 @@ pipeline {
                         terraform plan -out=tfplan
                     '''
                 }
+                 echo "stage Terraform Init & Plan done"
             }
         }
 
