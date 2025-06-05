@@ -20,14 +20,21 @@ pipeline {
                 git credentialsId: "${GITHUB_CREDS}", url: 'https://github.com/malir001/terraform-ecs.git', branch: 'master'
             }
         }
-*/
+
 
 
             stage('Checkout Code') {
                 steps {
                     git credentialsId: 'github-https-cred', url: 'https://github.com/malir001/terraform-ecs.git'
                 }
-            }
+            }*/
+
+             stage('Checkout') {
+      steps {
+        git url: 'https://github.com/malir001/microservice-app.git'
+        echo "stage checkout done"
+      }
+    }
         stage('Terraform Init & Plan') {
             steps {
                 withCredentials([[
